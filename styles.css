@@ -1,0 +1,32 @@
+.container{
+    border: 1px solid black;
+    display: flex;
+    width: 295px;
+    flex-wrap: wrap;
+    gap: 5px;
+   padding: 5px;
+ 
+}
+.tile {
+    width: 70px;
+    height: 70px;
+    background-color: palevioletred;
+    font-size: 60px;
+    text-align: center;
+    color: aliceblue;
+    border-radius: 4px;
+}
+
+
+.btn {
+    margin-bottom: 20px;
+    width: 50px;
+    width: 90px;
+    height: 30px;
+    background-color: palegreen;
+    border: green 1px solid;
+    border-radius: 4px;
+    margin-left: 115px;
+    cursor: pointer;
+}
+
