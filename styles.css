@@ -1,13 +1,16 @@
 .container{
+    /* position: relative; */
     border: 1px solid black;
     display: flex;
     width: 295px;
+    height: 295px;
     flex-wrap: wrap;
     gap: 5px;
    padding: 5px;
  
 }
 .tile {
+    /* position: absolute; */
     width: 70px;
     height: 70px;
     background-color: palevioletred;
@@ -15,6 +18,9 @@
     text-align: center;
     color: aliceblue;
     border-radius: 4px;
+    cursor: pointer;
+    left: 0;
+    top: 0;
 }
 
 
