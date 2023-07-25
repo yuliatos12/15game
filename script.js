@@ -114,7 +114,10 @@ function swap(coord1, coord2, tiles) {
    tiles[coord2.y][coord2.x] = coord1Number;
 
    if (userWon(tiles)) {
-   addFinish();
+    const finishMessage = document.createElement('p');
+    finishMessage.textContent = 'Congratulations!';
+    containerEl.after(finishMessage);
+
    }
 }
 const winningArray = new Array(16).fill(0).map((tile, i) => i + 1);
@@ -130,14 +133,7 @@ function userWon(tiles) {
 }
 
 
-function addFinish() {
 
-    const finishMessage = document.createElement('p');
-    finishMessage.textContent = 'Congratulations!';
-    containerEl.after(finishMessage);
-
-
-}
 
 
  
