@@ -3,8 +3,6 @@ const containerEl = document.querySelector('.container');
 const tilesEl = Array.from(containerEl.querySelectorAll('.tile'));
 const shuffleBtn = document.querySelector('.btn');
 
-
-
 const countTiles = 16;
 tilesEl[countTiles - 1].style.display = 'none';
 
@@ -12,9 +10,8 @@ tilesEl[countTiles - 1].style.display = 'none';
 let tiles = getTiles(
     tilesEl.map((tile) => Number(tile.dataset.number))
 );
-
 // console.log(tiles);
-
+// Transform elements into two dimentional array
 function getTiles(arr) {
     const tiles = [[], [], [], []];
     let y = 0;
@@ -32,7 +29,7 @@ function getTiles(arr) {
     }
     return tiles;
 }
-
+// Positioning the tiles inside the container
 function tilesPosition(tiles) {
     for (let y = 0; y < tiles.length; y++) {
         for (let x = 0; x < tiles[y].length; x++) {
@@ -41,16 +38,13 @@ function tilesPosition(tiles) {
             tilesStyles(tile, x, y)
         }
     }
-  
  }
-
+// Adding style positioning
  function tilesStyles(tile, x, y) {
     const shift = 100;
     tile.style.transform = `translate3D(${x*shift}%, ${y*shift}%, 0)`
  }
-
-
-
+// Shuffling  the tempopary array without 16th element and displaying the result
 function shuffleTiles() {
     const tempArray = Array.from({ length: countTiles - 1 }, (_, index) => index + 1);
     for (let i = tempArray.length - 1; i > 0; i--) {
@@ -71,6 +65,8 @@ shuffleBtn.addEventListener('click', shuffleTiles);
 const emptyTile = 16;
 
 containerEl.addEventListener('click', onTileClick);
+
+// Finding coordinates of the clicked tile
 
 function onTileClick(event) {
     const clickedTile = event.target.closest('.tile');
@@ -100,14 +96,14 @@ for (let y = 0; y < tiles.length; y++) {
 }
 return null;
 }
-
+// Checking for swap (if the diff is 1 then tiles are close and can be swapped)
 function isSwapValid (coord1, coord2) {
 const diffx = Math.abs(coord1.x - coord2.x);
 const diffy = Math.abs(coord1.y - coord2.y);
 
 return (diffx === 1 || diffy === 1) && (coord1.x === coord2.x || coord1.y === coord2.y);
 }
-
+// Swapping
 function swap(coord1, coord2, tiles) {
     const coord1Number = tiles[coord1.y][coord1.x];
    tiles[coord1.y][coord1.x] = tiles[coord2.y][coord2.x];
@@ -120,6 +116,7 @@ function swap(coord1, coord2, tiles) {
 
    }
 }
+// Winner check
 const winningArray = new Array(16).fill(0).map((tile, i) => i + 1);
 
 function userWon(tiles) {
